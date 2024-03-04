@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;//! singeltona dönüştürmek için
     public enum GameState { Menu, Game, LevelComplete, GameOver } //! oyun durumları
-
+    private GameState gameState;//! oyun durumunu tutacak
     public static Action<GameState> onGameStateChanged;//! oyun durumunu değiştirecek Action
                                                        // Start is called before the first frame update
 
@@ -25,6 +25,15 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    public void SetGameState(GameState gameState)
+    {
+        this.gameState = gameState; //! playe basınca game durumunu çağıracak
+        //! oyun durumunu ayarlayacak
+
+        onGameStateChanged?.Invoke(gameState);//! bu şekilde ypamaz isek hata alabiliriz ?.invoke
+        Debug.Log("Game State changed to : " + gameState);
     }
     void Start()
     {
