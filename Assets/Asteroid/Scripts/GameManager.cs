@@ -30,10 +30,9 @@ public class GameManager : MonoBehaviour
     public void SetGameState(GameState gameState)
     {
         this.gameState = gameState; //! playe basınca game durumunu çağıracak
-        //! oyun durumunu ayarlayacak
 
-        onGameStateChanged?.Invoke(gameState);//! bu şekilde ypamaz isek hata alabiliriz ?.invoke
-        Debug.Log("Game State changed to : " + gameState);
+        onGameStateChanged?.Invoke(gameState);//! oyun durumunu değiştirecek
+
     }
     void Start()
     {
