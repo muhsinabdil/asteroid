@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-
+        SetGameState(GameState.Game);
     }
 
     // Update is called once per frame
