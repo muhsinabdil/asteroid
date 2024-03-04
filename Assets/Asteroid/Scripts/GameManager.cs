@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
         onGameStateChanged?.Invoke(gameState);//! oyun durumunu değiştirecek
 
     }
+    public bool IsGameState()
+    {
+        return gameState == GameState.Game;//! oyun durumunu true veya false döndürür
+    }
     void Start()
     {
         SetGameState(GameState.Game);
