@@ -5,12 +5,19 @@ using UnityEngine;
 public class ChunkManager : MonoBehaviour
 {
 
+
+    //! bu scripte yapmaya çalıştığım yol boyunca oluşacak yol parçalarını yönetmek
+    //! seviyeye göre parçaları oluşturmak
+    //! seviye bilgisini almak
+
+
+
     public static ChunkManager instance;//! chunkmanagerın örneğini alıyoruz tek olmalı
 
     [Header("Elements")]
     [SerializeField] private LevelSO[] levels;
 
-    private GameObject finishLine;//! bitişin konumunu almak için yardımcı olacak bu sayede slidera etki edeceğiz
+
 
 
 
@@ -32,8 +39,6 @@ public class ChunkManager : MonoBehaviour
     void Start()
     {
         GenerateLevel();
-
-        finishLine = GameObject.FindWithTag("Finish");//! bitişi alıyoruz
     }
 
     // Update is called once per frame
@@ -73,17 +78,13 @@ public class ChunkManager : MonoBehaviour
             }
 
             Chunk chunkInstance = Instantiate(chunkToCreate, chunkPosition, Quaternion.identity, transform);
-            //!parçalar farklı olduğu için uzunlukların yarısı kadar ileriye gidiyoruz
+            //!parçalar farklı uzunlukta olduğu için uzunlukların yarısı kadar ileriye gidiyoruz
             chunkPosition.y += chunkInstance.GetLength() / 2;
 
 
         }
 
     }
-
-
-
-
 
     public int GetLevel()
     {

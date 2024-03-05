@@ -5,6 +5,11 @@ using UnityEngine;
 public class Chunk : MonoBehaviour
 {
 
+    //! bu scriptte yapmaya çalıştığım yolları oluşturmak x ve y değerleri önceden belirlenir
+    //! parçaların uzunluğunu dönüyoruz
+    //! parçalar için gizmos ile çizim yapıyoruz bu sayede sahnede daha rahat görebiliyoruz
+
+
     [Header("Settings")]
     [SerializeField] private Vector2 size;//! boyutu
                                           // Start is called before the first frame update
@@ -21,14 +26,5 @@ public class Chunk : MonoBehaviour
 
         Gizmos.DrawWireCube(transform.position, size);//! tel Küp çiz 
     }
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
