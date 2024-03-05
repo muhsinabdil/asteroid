@@ -9,9 +9,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float moveSpeed;//! hareket hızı
     [SerializeField] private float roadWidth;//! yol genişliği
     [SerializeField] private float slideSpeed;//! sağa sola kaydırma hızı
+    [SerializeField] private Transform camera;//! sağa sola kaydırma hızı
+    [SerializeField] private Transform quad;//! sağa sola kaydırma hızı
 
     private Vector3 clickedScreenPosition; //! ekran konumu
     private Vector3 clickedPlayerPosition; //! player konumu
+
+
     private bool canMove; //! hareket edebilir mi
                           // Start is called before the first frame update
     private void Awake()
@@ -38,7 +42,7 @@ public class PlayerManager : MonoBehaviour
 
         if (canMove)//! hareket edebilir true olunca hareket edebilecek
         {
-
+            MoveForward();
             ManageControl();
         }
 
@@ -83,7 +87,13 @@ public class PlayerManager : MonoBehaviour
     }
 
 
+    private void MoveForward()
+    {
+        transform.position += Vector3.up * Time.deltaTime * moveSpeed;
+        camera.position += Vector3.up * Time.deltaTime * moveSpeed;
+        quad.position += Vector3.up * Time.deltaTime * moveSpeed;
 
+    }
 
     private void ManageControl()
     {
