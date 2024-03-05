@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
         if (!GameManager.instance.IsGameState())//! oyun durumunda değilse 
             return;//! false ise boş döner
 
-        float health = PlayerManager.instance.Get;
+        float health = PlayerManager.instance.GetHealth();
         healthBar.value = health;
 
 
