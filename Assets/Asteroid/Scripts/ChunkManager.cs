@@ -90,6 +90,6 @@ public class ChunkManager : MonoBehaviour
 
     public int GetLevel()
     {
-        return PlayerPrefs.GetInt("level", 0);//! default değeri 1
+        return PlayerPrefs.GetInt("level", 0);//! default değeri 0 yaptık
     }
 }

@@ -7,6 +7,12 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
+
+    //! bu scriptte yapmaya çalıştığım UI componentlerini yönetmek
+    //! oyun durumuna göre panelleri aktif pasif yapmak
+    //! Player can barını güncellemek
+    //! leveli yazdırmak
+
     [Header("Elements")]
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject finishPanel;
