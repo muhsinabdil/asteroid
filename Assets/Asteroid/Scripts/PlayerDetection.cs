@@ -36,15 +36,7 @@ public class PlayerDetection : MonoBehaviour
 
 
             }
-            if (hitCollider.CompareTag("enemy")) //! eğer düşman ise
-            {
-                onEnemiesHit?.Invoke();
-            }
 
-            if (hitCollider.CompareTag("coin")) //! eğer coin ise
-            {
-                onCoinsHit?.Invoke();
-            }
 
         }
     }

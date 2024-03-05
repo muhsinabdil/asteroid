@@ -32,17 +32,14 @@ public class Spawner : MonoBehaviour
         if (GameManager.instance.IsGameState())
         {
             SpawnAsteroid();
-            SpawnEnemy();
+
         }
 
 
 
     }
 
-    private void SpawnEnemy()
-    {
 
-    }
 
     private void SpawnAsteroid()
     {
