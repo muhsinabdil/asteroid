@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+
+
+    //! bu scriptte yapmaya çalıştığım asteroidleri yönetmek
+    //! asteroidlerin hareketlerini sağlamak
+    //! asteroidlerin çarpışmalarını algılamak
+    //! asteroidlerin yok olmasını sağlamak
+    //! asteroidlerin sağlığını belirlemek
     // Start is called before the first frame update
 
     public float health = 0;
