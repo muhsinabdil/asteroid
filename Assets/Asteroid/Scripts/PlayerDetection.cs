@@ -26,13 +26,14 @@ public class PlayerDetection : MonoBehaviour
 
     private void DetectColliders()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.5f); //! 0.5f lik bir alan oluşturduk ve bu alan içindeki colliderları algılayacak
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f); //! 0.5f lik bir alan oluşturduk ve bu alan içindeki colliderları algılayacak
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.CompareTag("asteroid")) //! eğer asteroidse
             {
                 onAsteroidsHit?.Invoke(); //! asteroid çarptığında olay tetiklenecek
-                Destroy(hitCollider.gameObject); //! asteroidi yok edecek
+                Destroy(gameObject); //! asteroidi yok edecek
+                Debug.Log("Asteroid hit");
             }
             if (hitCollider.CompareTag("enemy")) //! eğer düşman ise
             {

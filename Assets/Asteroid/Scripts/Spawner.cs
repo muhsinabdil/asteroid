@@ -12,6 +12,8 @@ public class Spawner : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float spawnRate;
+    [SerializeField] private float maxScale;
+    private float scale;
     [SerializeField] private float spawnRateEnemy;
 
 
@@ -48,9 +50,12 @@ public class Spawner : MonoBehaviour
         if (spawnRate < 0)
         {
             spawnRate = UnityEngine.Random.Range(0.5f, 1.5f);
+            scale = UnityEngine.Random.Range(0.5f, maxScale + 1.0f);//! scale i random bir değer atıyoruz
             int randomAsteroid = UnityEngine.Random.Range(0, asteroidPrefabs.Length);
             GameObject asteroid = Instantiate(asteroidPrefabs[randomAsteroid], transform.position, Quaternion.identity);
-            asteroid.transform.position = new Vector3(UnityEngine.Random.Range(-2.5f, 2.5f), transform.position.y, transform.position.z);
+
+            asteroid.transform.position = new Vector3(UnityEngine.Random.Range(-2.5f, 2.5f), transform.position.y, 0);
+            asteroid.transform.localScale = new Vector3(scale, scale, 0);
         }
 
     }

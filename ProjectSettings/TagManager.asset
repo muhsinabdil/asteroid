@@ -6,6 +6,8 @@ TagManager:
   tags:
   - enemy
   - asteroid
+  - deathline
+  - player
   layers:
   - Default
   - TransparentFX
