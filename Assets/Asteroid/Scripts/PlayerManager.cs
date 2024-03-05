@@ -148,7 +148,7 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    public float GetFinishY()
+    public float GetHealth()
     {
         return health;
     }

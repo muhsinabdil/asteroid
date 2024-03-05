@@ -25,7 +25,11 @@ public class UIManager : MonoBehaviour
 
         GameManager.onGameStateChanged += GameStateChangedCallBack;//! oyun durumunu dinliyoruz
     }
+    void Update()
+    {
+        UpdateProgressBar();
 
+    }
     private void OnDestroy()
     {
 
@@ -40,7 +44,7 @@ public class UIManager : MonoBehaviour
         if (!GameManager.instance.IsGameState())//! oyun durumunda değilse 
             return;//! false ise boş döner
 
-        float health = PlayerManager.instance.transform.position.z / ChunkManager.instance.GetFinishY();
+        float health = PlayerManager.instance.Get;
         healthBar.value = health;
 
 
@@ -89,8 +93,5 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
 
-    }
 }
