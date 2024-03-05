@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float moveSpeed;//! hareket hızı
     [SerializeField] private float roadWidth;//! yol genişliği
     [SerializeField] private float slideSpeed;//! sağa sola kaydırma hızı
+    [SerializeField] private float health;//! sağa sola kaydırma hızı
     [SerializeField] private Transform camera;//! sağa sola kaydırma hızı
     [SerializeField] private Transform quad;//! sağa sola kaydırma hızı
 
@@ -33,9 +34,19 @@ public class PlayerManager : MonoBehaviour
     }
     void Start()
     {
-        GameManager.onGameStateChanged += GameStateChangedCallBack;//! etkinlik aboneliğini yapıyoruz
-    }
+        GameManager.onGameStateChanged += GameStateChangedCallBack;
+        PlayerDetection.onAsteroidsHit += HealthRemove;
 
+    }
+    private void OnDestroy()
+    {
+
+        //! Actionları dinlemeyi bırakıyoruz
+        PlayerDetection.onAsteroidsHit -= HealthRemove;
+
+        GameManager.onGameStateChanged -= GameStateChangedCallBack;
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -93,6 +104,15 @@ public class PlayerManager : MonoBehaviour
         camera.position += Vector3.up * Time.deltaTime * moveSpeed;
         quad.position += Vector3.up * Time.deltaTime * moveSpeed;
 
+    }
+
+    private void HealthRemove()
+    {
+        health -= 1;
+        if (health <= 0)
+        {
+            GameManager.instance.SetGameState(GameManager.GameState.GameOver);
+        }
     }
 
     private void ManageControl()

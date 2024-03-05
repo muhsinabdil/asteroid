@@ -11,6 +11,7 @@ public class PlayerDetection : MonoBehaviour
     public static Action onAsteroidsHit;
     public static Action onEnemiesHit;
     public static Action onCoinsHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +33,19 @@ public class PlayerDetection : MonoBehaviour
             if (hitCollider.CompareTag("asteroid")) //! eğer asteroidse
             {
                 onAsteroidsHit?.Invoke(); //! asteroid çarptığında olay tetiklenecek
-                Destroy(gameObject); //! asteroidi yok edecek
-                Debug.Log("Asteroid hit");
+
+
             }
             if (hitCollider.CompareTag("enemy")) //! eğer düşman ise
             {
                 onEnemiesHit?.Invoke();
             }
+
+            if (hitCollider.CompareTag("coin")) //! eğer coin ise
+            {
+                onCoinsHit?.Invoke();
+            }
+
         }
     }
 }
