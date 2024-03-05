@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class ChunkManager : MonoBehaviour
 {
+
+        public static ChunkManager instance;//! chunkmanagerın örneğini alıyoruz tek olmalı
+
+    [Header("Elements")]
+    [SerializeField] private LevelSO[] levels;
+    
     // Start is called before the first frame update
     void Start()
     {
