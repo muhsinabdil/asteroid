@@ -82,10 +82,7 @@ public class ChunkManager : MonoBehaviour
     }
 
 
-    public float GetFinishY()
-    {
-        return finishLine.transform.position.y;
-    }
+
 
 
     public int GetLevel()
