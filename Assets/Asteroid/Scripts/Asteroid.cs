@@ -39,14 +39,21 @@ public class Asteroid : MonoBehaviour
         {
 
 
-            if (hitCollider.CompareTag("player"))
+            if (hitCollider.CompareTag("bullet"))
             {
 
-                health -= 100;
+                health -= 1;
                 if (health <= 0)
                 {
                     Destroy(gameObject);
                 }
+            }
+            if (hitCollider.CompareTag("player"))
+            {
+
+
+                Destroy(gameObject);
+
             }
 
 
