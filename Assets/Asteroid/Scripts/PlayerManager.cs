@@ -32,6 +32,8 @@ public class PlayerManager : MonoBehaviour
             instance = this;
         }
     }
+
+
     void Start()
     {
         GameManager.onGameStateChanged += GameStateChangedCallBack;
@@ -59,6 +61,8 @@ public class PlayerManager : MonoBehaviour
 
 
     }
+
+
 
     private void GameStateChangedCallBack(GameManager.GameState gameState)
     {
@@ -142,5 +146,10 @@ public class PlayerManager : MonoBehaviour
         }
 
 
+    }
+
+    public float GetFinishY()
+    {
+        return health;
     }
 }
